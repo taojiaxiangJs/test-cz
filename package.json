@@ -4,29 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cm": "cz",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:staged": "lint-staged",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "cz": "cz"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/taojiaxiangJs/test-cz.git"
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.41.0",
+    "eslint-plugin-vue": "^9.14.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/taojiaxiangJs/test-cz/issues"
-  },
-  "homepage": "https://github.com/taojiaxiangJs/test-cz#readme",
-  "devDependencies": {
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.41.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.2"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --ext .js,.vue ."
+    ]
   }
 }
